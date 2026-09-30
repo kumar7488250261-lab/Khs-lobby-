@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kharsia Lobby – SECR Bilaspur Division</title>
+<meta name="description" content="Kharsia Lobby staff app: Call Book, Periodical Rest, Jeep DI, Shift Roster, LR Declaration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Mukta:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#0a1122;--panel:#111b33;--line:#22304f;--text:#e8edf7;--mute:#93a1bd;--amber:#ffa800;--green:#1fb56a;--red:#e5484d}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Mukta,system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;letter-spacing:.3px;line-height:1.05}
+nav{position:sticky;top:0;z-index:5;background:rgba(10,17,34,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:'Barlow Condensed';font-weight:700;font-size:22px;display:flex;gap:10px;align-items:center}
+.lamp{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:15px;color:var(--mute)}
+nav ul a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;background:var(--amber);color:#1a1200}
+.btn.ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.btn:hover{filter:brightness(1.1)}
+.hero{padding:72px 0 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;
+ background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 34px);opacity:.9}
+.hero h1{font-size:clamp(44px,9vw,92px);max-width:11ch}
+.hero p.sub{color:var(--mute);font-size:19px;max-width:540px;margin:18px 0 28px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.live{display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--mute);margin-bottom:18px;border:1px solid var(--line);padding:6px 14px;border-radius:99px}
+.live b{color:var(--text)}
+section{padding:64px 0}
+h2{font-size:clamp(32px,5vw,48px);margin-bottom:8px}
+.lead{color:var(--mute);margin-bottom:32px;max-width:560px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.14);min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
+.card h3{font-size:28px}
+.card .hi{color:#ffd27a;font-size:15px;font-weight:600}
+.card small{color:rgba(255,255,255,.75)}
+.c1{background:linear-gradient(160deg,#1e40af,#2563eb)}
+.c2{background:linear-gradient(160deg,#0b5d43,#0f9968)}
+.c3{background:linear-gradient(160deg,#8a4208,#d27a06)}
+.c4{background:linear-gradient(160deg,#9b1c1c,#dc2626)}
+.c5{background:linear-gradient(160deg,#155e75,#0e8fb0)}
+.c6{background:linear-gradient(160deg,#5b21b6,#7c3aed)}
+.c7{background:linear-gradient(160deg,#0f766e,#14a08f)}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;background:rgba(0,0,0,.35);margin-bottom:10px}
+.dl{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:36px;display:grid;gap:32px;grid-template-columns:1.1fr 1fr}
+.steps{list-style:none;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;padding-left:44px;position:relative;color:var(--mute)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#1a1200;font-weight:700;display:grid;place-items:center}
+.steps b{color:var(--text)}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:14px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.about div{border-left:3px solid var(--amber);padding:4px 0 4px 16px}
+.about h3{font-size:24px}
+.about p{color:var(--mute);font-size:15px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:760px){nav ul{display:none}.dl{grid-template-columns:1fr;padding:24px}.hero{padding-top:48px}}
+@media(prefers-reduced-motion:no-preference){.lamp{animation:p 2s infinite}@keyframes p{50%{opacity:.35}}}
+
+.duty{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font:inherit;font-weight:700;padding:9px 16px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--mute);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--amber);color:#1a1200;border-color:var(--amber)}
+.dcols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+form{display:grid;gap:12px}
+label{font-size:14px;color:var(--mute);display:grid;gap:4px}
+input,select{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.board{display:grid;gap:10px;align-content:start}
+.slot{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.slot small{color:var(--mute);display:block}
+.slot .t{font-family:'Barlow Condensed';font-size:22px;font-weight:700}
+.slot a.call{background:var(--green);color:#04170d;font-weight:700;padding:6px 14px;border-radius:8px;font-size:14px}
+.empty{color:var(--mute);font-size:14px}
+.msg{font-size:14px;min-height:20px}.msg.ok{color:var(--green)}.msg.err{color:var(--red)}
+.pin{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}.pin input{max-width:220px}
+@media(max-width:760px){.dcols{grid-template-columns:1fr}.duty{padding:20px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <a class="brand" href="#top"><span class="lamp"></span>KHARSIA LOBBY</a>
+ <ul><li><a href="#features">Features</a></li><li><a href="#duty">Duty Update</a></li><li><a href="#about">About</a></li><li><a href="#download">Download</a></li></ul>
+ <a class="btn" href="#download">App Download</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+ <div class="live"><span class="lamp"></span><b>24x7 Operations</b> · Running Staff Active</div>
+ <h1>Kharsia Lobby, ek app mein.</h1>
+ <p class="sub">South East Central Railway, Bilaspur Division ke running staff ke liye: call book, periodical rest, jeep DI, roster aur LR declaration – sab kuch mobile par.</p>
+ <div class="cta"><a class="btn" href="#download">Android App Download</a><a class="btn ghost" href="#features">Features dekhein</a></div>
+</div></header>
+
+<section id="features"><div class="wrap">
+ <h2>App ke modules</h2>
+ <p class="lead">Lobby ka roz ka kaam – seedha staff ke phone par.</p>
+ <div class="grid">
+  <article class="card c1"><div><span class="tag">OPEN</span><h3>Staff Call Book</h3><div class="hi">स्टाफ डायरेक्टरी</div></div><small>141 Stations &amp; Lobbies</small></article>
+  <article class="card c2"><div><span class="tag">OPEN</span><h3>Periodical Rest</h3><div class="hi">पी.आर रिमार्क</div></div><small>Sign-Off &amp; Rest</small></article>
+  <article class="card c3"><div><span class="tag">LOCKED</span><h3>Store Register</h3><div class="hi">उपकरण रजिस्टर</div></div><small>Fast Issue &amp; Return</small></article>
+  <article class="card c4"><div><span class="tag">LOCKED</span><h3>Long Hour Duty</h3><div class="hi">लॉन्ग आवर अपडेट</div></div><small>9+ Hours Relief Monitor</small></article>
+  <article class="card c5"><div><span class="tag">LOCKED</span><h3>Jeep DI</h3><div class="hi">जीप डी.आई</div></div><small>Lobby FIFO queue, quick dispatch, return &amp; arrival</small></article>
+  <article class="card c6"><div><span class="tag">LOCKED</span><h3>Shift Roster</h3><div class="hi">रोस्टर व TLC</div></div><small>06-14 · 14-22 · 22-06</small></article>
+  <article class="card c7"><div><span class="tag">MONTHLY LR</span><h3>LR Declaration</h3><div class="hi">एल.आर डिक्लेरेशन</div></div><small>Monthly section-wise LR (KHS–NIA, NIA–BSP, KHS–RIG, KHS–KCHP, Bypass)</small></article>
+  <article class="card c1" style="background:linear-gradient(160deg,#334155,#475569)"><div><span class="tag">SHIFT WISE</span><h3>Duty Update</h3><div class="hi">सुपरवाइज़र · बॉक्स बॉय · सैंडर बॉय · रनिंग रूम</div></div><small>Shift, naam aur mobile number update</small></article>
+ </div>
+</div></section>
+
+<section id="duty" style="padding-top:0"><div class="wrap">
+ <h2>Shift wise duty update</h2>
+ <p class="lead">Field supervisor, Box Boy, Sander Boy aur Kharsia Running Room staff apni shift, naam aur mobile number yahan update karein.</p>
+ <div class="duty">
+  <div class="pin"><input id="pin" type="password" inputmode="numeric" placeholder="Staff PIN" aria-label="Staff PIN" autocomplete="off"><button class="btn ghost" id="pinBtn" type="button">PIN se kholein</button></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="dcols">
+   <form id="f">
+    <label>Shift (शिफ्ट)<select id="shift"><option>06-14</option><option>14-22</option><option>22-06</option></select></label>
+    <label>Naam (नाम)<input id="name" required autocomplete="name"></label>
+    <label>Mobile No.<input id="mobile" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 digit"></label>
+    <label id="postWrap">Section / Post (optional)<input id="post" placeholder="jaise KHS, Yard, Robertson"></label>
+    <button class="btn" type="submit" style="border:0;font:inherit;font-weight:700;cursor:pointer">Update karein</button>
+    <div class="msg" id="msg" role="status"></div>
+   </form>
+   <div class="board" id="board" aria-live="polite"></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap">
+ <h2>Kyun banaya gaya</h2>
+ <p class="lead">Kagaz aur register ki jagah ek hi jagah par record.</p>
+ <div class="about">
+  <div><h3>Jeep FIFO</h3><p>Jo jeep pehle lobby mein aayi, wahi pehle jaayegi – dispatch time aur driver ka record apne aap.</p></div>
+  <div><h3>Hindi + English</h3><p>Har screen par dono bhasha, taaki har staff aasani se use kare.</p></div>
+  <div><h3>Google Sheets se connected</h3><p>PR aur declaration ka data sheet mein save hota hai.</p></div>
+  <div><h3>Login-based access</h3><p>Lobby user ke hisaab se modules khulte hain; kuch modules locked rehte hain.</p></div>
+ </div>
+</div></section>
+
+<section id="download"><div class="wrap">
+ <div class="dl">
+  <div>
+   <h2>Android app download karein</h2>
+   <p class="lead" style="margin-bottom:20px">APK file seedha download karke install karein.</p>
+   <a class="btn" id="apk" href="Callbook_v2.0_Oct26.apk" download>⬇ Download APK</a>
+   <div class="meta"><span>Platform: Android</span><span>Version: 2.0 (Oct 2026)</span></div>
+   <p class="note">Ye app Play Store par nahi hai, isliye install ke waqt "Unknown sources" allow karna hoga.</p>
+  </div>
+  <ol class="steps">
+   <li><b>APK download karein</b> – button dabayein, file phone mein save hogi.</li>
+   <li><b>File kholein</b> – Downloads mein <i>Callbook_v2.0_Oct26.apk</i> par tap karein.</li>
+   <li><b>Permission dein</b> – "Install unknown apps" allow karein.</li>
+   <li><b>Login karein</b> – apna lobby user ID se app chalayein.</li>
+  </ol>
+ </div>
+</div></section>
+
+<footer><div class="wrap">
+ <span>© 2026 Kharsia Lobby · SECR Bilaspur Division</span>
+ <span>Sirf railway staff ke upyog ke liye</span>
+</div></footer>
+
+<script>
+const API=""; // yahan Google Apps Script Web App URL paste karein
+const ROLES={sup:"Supervisor",box:"Box Boy",sand:"Sander Boy",rr:"Kharsia Running Room"};
+const SHIFTS=["06-14","14-22","22-06"];
+let role="sup",data=[],pin="";
+const $=id=>document.getElementById(id);
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function say(t,c){$("msg").textContent=t;$("msg").className="msg "+(c||"")}
+function guessShift(){const h=new Date().getHours();$("shift").value=h>=6&&h<14?"06-14":h>=14&&h<22?"14-22":"22-06"}
+function tabs(){$("tabs").innerHTML=Object.entries(ROLES).map(([k,v])=>`<button type="button" role="tab" data-k="${k}" aria-selected="${k===role}">${v}</button>`).join("");
+ $("postWrap").style.display=role==="sup"?"grid":"none"}
+function board(){$("board").innerHTML=SHIFTS.map(sh=>{
+ const e=data.filter(x=>x.date===today()&&x.role===role&&x.shift===sh).pop();
+ return `<div class="slot"><div><span class="t">${sh}</span>${e?`<small>${esc(e.name)}${e.post?" · "+esc(e.post):""}</small>`:'<small class="empty">Abhi update nahi hua</small>'}</div>${e?`<a class="call" href="tel:${esc(e.mobile)}">Call ${esc(e.mobile)}</a>`:""}</div>`}).join("")}
+async function load(){
+ if(API){try{const r=await fetch(API+"?pin="+encodeURIComponent(pin));const j=await r.json();data=j.ok?j.rows:[];if(!j.ok)say("PIN galat hai","err")}catch(e){say("Data load nahi hua","err")}}
+ else{try{data=JSON.parse(localStorage.getItem("kl_duty")||"[]")}catch(e){data=[]}}
+ board()}
+$("tabs").addEventListener("click",e=>{const k=e.target.dataset.k;if(k){role=k;tabs();board();say("")}});
+$("pinBtn").onclick=()=>{pin=$("pin").value;try{sessionStorage.setItem("kl_pin",pin)}catch(e){}load()};
+$("f").addEventListener("submit",async e=>{e.preventDefault();
+ const row={date:today(),role,shift:$("shift").value,name:$("name").value.trim(),mobile:$("mobile").value.trim(),post:role==="sup"?$("post").value.trim():"",pin};
+ say("Save ho raha hai...");
+ try{
+  if(API){await fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(row)});await new Promise(r=>setTimeout(r,1200));await load()}
+  else{data.push(row);try{localStorage.setItem("kl_duty",JSON.stringify(data))}catch(x){}board()}
+  say("Update ho gaya: "+ROLES[role]+" · "+row.shift,"ok");
+ }catch(x){say("Update nahi hua, dobara try karein","err")}});
+try{pin=sessionStorage.getItem("kl_pin")||"";$("pin").value=pin}catch(e){}
+tabs();guessShift();load();
+</script>
+</body>
+</html>
